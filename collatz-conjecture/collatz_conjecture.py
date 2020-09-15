@@ -22,5 +22,5 @@ while True:
 
 l = steps(x)
 
-print('List:', l, sep=' ')
+print('\nList:', l, sep=' ')
 print('Number of steps required:', len(l) - 1)
