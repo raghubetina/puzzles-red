@@ -1,16 +1,15 @@
-import re
+import string
 
 def count_words(sentence):
     counts = dict()
-    all_words = sentence.split()
-    words_no_punctuation = [re.sub('[^\w\s]', '', w) for w in words];
+    words_no_punctuation = sentence.translate(str.maketrans('', '', string.punctuation)).split()
            
-    for i in words_no_punctuation:
-        if i in counts:
-            counts[i.lower()] += 1
-        else:
-            counts[i.lower()] = 1
+    for word in words_no_punctuation:
+        word = word.lower()
+        if word not in counts:
+            counts[word] = 0
+        counts[word] += 1
 
-    return counts;
+    return counts
 
 print(count_words('\"That\'s the password: \'PASSWORD 123\'!\", cried the Special Agent.\nSo I fled.'))
