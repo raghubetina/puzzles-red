@@ -1,12 +1,15 @@
+import re
+
 def count_words(sentence):
     counts = dict()
-    words = sentence.split()
-
-    for i in words:
+    all_words = sentence.split()
+    words_no_punctuation = [re.sub('[^\w\s]', '', w) for w in words];
+           
+    for i in words_no_punctuation:
         if i in counts:
-            counts[i] += 1
+            counts[i.lower()] += 1
         else:
-            counts[i] = 1
+            counts[i.lower()] = 1
 
     return counts;
 
