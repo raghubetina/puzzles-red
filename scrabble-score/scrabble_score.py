@@ -7,10 +7,10 @@ letter = {"a": 1 , "b": 3 , "c": 3 , "d": 2 ,
           "y": 4 , "z": 10}
 
 def score(word):
-    points = 0;
+    points = 0
 
     for i in word:
-        points = points + letter[i];
+        points += letter[i.lower()];
     return points;
 
 word_points = input("Word points: ");
