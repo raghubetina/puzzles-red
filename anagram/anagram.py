@@ -1,12 +1,11 @@
 def find_anagrams(word, candidates):
-    anagram_list = []
-    for i in word: 
-        for j in candidates: 
-            if i != j and (sorted(i)==sorted(j)):
-                anagram_list.append(j)
-    return (anagram_list)
+    sorted_word = ''.join(sorted(word))
+    sorted_characters = []
 
-word = ["listen"]
-candidates = ["enlists", "google", "inlets", "banana"]
+    for word in candidates:
+        sorted_char = ''.join(sorted(word))
+        if sorted_char == sorted_word:
+            sorted_characters.append(word)
+    print(sorted_characters)
 
-print(find_anagrams(word, candidates))
+find_anagrams("enlist", ["inlets", "google", "listen", "grape", "fantastic", "inlet"])
