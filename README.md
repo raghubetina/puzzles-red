@@ -4,7 +4,7 @@ In order to level up our programming skills, and have something to do while lear
 
 In this repository, you'll find twenty-five folders, each containing one puzzle. Each folder contains a `README.md` with a description of the problem, and a `.py` file with a stub of a solution. Your job is to complete the implementation.
 
-The puzzles, in very approximate order of difficulty, are:
+Here are the puzzles in very approximate order of difficulty. (As you're dividing and conquering, keep the difficulty level in mind relative to each of your Python proficiency.)
 
  - leap
  - darts
@@ -37,9 +37,17 @@ Your job, as a team, is to solve as many as possible.
 ## Setup
  
  1. You've all been assigned to a team that has write access to this repository.
- 1. Create a workspace on Gitpod by adding the URL of this repositor
- 1. Once the workspace has finished setting up, you might want to enable Autosave from the File menu (I always do this).
- 1. The first thing you each should do is create your own version, or **branch** to work on. We'll explain more about this later. For now, type the following:
+ 1. Keep your [command-line cheat sheet](http://www.mathcs.emory.edu/~valerie/courses/fall10/155/resources/unix_cheatsheet.html) handy. The main things you'll need:
+    - `cd folder_name` to navigate into a directory.
+    - `cd ..` to navigate out of a directory (back to the parent folder).
+    - Remember to use the <kbd>tab</kbd> key often to autocomplete file and folder names. It saves a ton of typing, and confirms the existence of the file or folder you are targeting; and will alert you to when you're not in the folder you think you are, if the autocomplete fails.
+ 1. Clone the repository to your own computer. You can paste the URL of the repo into GitKraken, or use command-line Git:
+     
+    ```
+    $ git clone https://github.com/boothresearch/puzzles
+    ```
+ 1. Alternatively, [you can use Gitpod](https://chapters.firstdraft.com/chapters/785) to work on the puzzles instead of your own computer; if, for example, you're using a loaner that doesn't have Python installed.
+ 1. The first thing you each should do is create your own version, or **branch** to work on. You can use GitKraken, or command-line Git:
 
     ```
     $ git checkout -b your-name-first-branch
@@ -47,12 +55,13 @@ Your job, as a team, is to solve as many as possible.
 
     Substitute your own name, GitHub username, nickname, or initials where you see `your-name` above.
 
- 1. Then, `cd` into whichever puzzle you want to work on, e.g. `leap`:
+ 1. Then, in your VSCode terminal, `cd` into whichever puzzle you want to work on, e.g. the first one, `leap`:
 
     ```
     $ cd leap
     ```
- 1. Start editing `leap.py`; let's change the `pass` to `return("Party like it's " + str(year))`:
+ 1. Within each folder, there is a `README` that describes the problem to be solved. Read the `README` in `leap/`.
+ 1. Start editing `leap.py`; let's replace the `pass` with `return("Party like it's " + str(year))`:
 
     ```python
     def leap_year(year):
@@ -89,7 +98,7 @@ Your job, as a team, is to solve as many as possible.
     Note that the `-i` flag must come _before_ the filename.
 
  1. `cd ..` to navigate back up to the parent folder when you're ready to work on a different puzzle, and then `cd` into that one. Rinse and repeat.
- 1. Each of you should choose a task to work on. Divide and conquer as you see fit. Before each task, first take a snapshot of the work that you did so far:
+ 1. Each of you should choose a task to work on. Divide and conquer as you see fit. Before each task, first take a snapshot of the work that you did so far on your current branch:
 
     ```
     git add -A
@@ -99,7 +108,7 @@ Your job, as a team, is to solve as many as possible.
     and then switch back to the original version:
 
     ```
-    git checkout master
+    git checkout main
     ```
 
     Get the freshest version, in case there have been any updates:
@@ -122,7 +131,7 @@ Your job, as a team, is to solve as many as possible.
  - DataCamp's [Introduction to Python](https://www.datacamp.com/courses/intro-to-python-for-data-science)
  - DataCamp's [Intermediate Python for Data Science](https://www.datacamp.com/courses/intermediate-python-for-data-science)
 
-## Git basics
+## Command-line git basics
 
 Git is a very powerful tool with a _lot_ of commands. Here is the small subset of commands that I use a million times a day. We'll add to our toolbelt as time goes on:
 
@@ -145,6 +154,12 @@ Git is a very powerful tool with a _lot_ of commands. Here is the small subset o
 
     ```
     git diff
+    ```
+
+    or to see the contents of the last commit:
+
+    ```
+    git show
     ```
 
  1. To start a new version, or **branch**:
@@ -204,7 +219,7 @@ Git is a very powerful tool with a _lot_ of commands. Here is the small subset o
         ```
         git push --set-upstream origin your-branch-name
         ```
-    - The very first time you `push` from Gitpod, it may ask you to give it permission to do so from GitHub. Go ahead and do so. 
+    - (If you're using Gitpod: the very first time you `push` from Gitpod, it may ask you to give it permission to do so from GitHub. Go ahead and do so.)
 
  1. To retrieve the freshest version of the branch you're on from GitHub.com, in case there have been any updates:
 
@@ -212,30 +227,30 @@ Git is a very powerful tool with a _lot_ of commands. Here is the small subset o
     git pull
     ```
 
- 1. When you're ready to start on a new task, the best practice is to first switch back to the `master` branch, get the freshest version, and then to start a new branch from there:
+ 1. When you're ready to start on a new task, the best practice is to first switch back to the `main` branch, get the freshest version, and then to start a new branch from there:
 
     ```
-    git checkout master
+    git checkout main
     git pull
     git checkout -b my-next-task
     ```
 
- 1. **Never** make commits directly to the `master` branch. Always work on your own, experimental branch. We'll talk about why this is soon.
+ 1. **Never** make commits directly to the `main` branch. Always work on your own, experimental branch. We'll talk about why this is soon.
 
-I know this is a lot, but our main focus today is just getting our feet wet with git. Please wave over an instructor as you experiment with these commands and ask questions; remember:
+I know this is a lot of command-line Git commands, but just try to experiment and see how it feels compared to GitKraken. Please wave over an instructor as you experiment with these commands and ask questions; remember:
 
 > Questions are places in your mind where answers fit. If you haven’t asked the question, the answer has nowhere to go. — Clay Christensen
 
 ## Merging branches
 
-When you're reading to bring the changes from one branch (usually from one of your experimental branches, e.g. `your-name-first-branch`) into another branch (usually into the `master` branch), we have a couple of options:
+When you're reading to bring the changes from one branch (usually from one of your experimental branches, e.g. `your-name-first-branch`) into another branch (usually into the `main` branch), we have a couple of options:
 
  1. Fundamentally, we use Git's `merge` command at the command-line.
- 1. In the early days, I recommend pushing your branch to GitHub and using GitHub's interface for merging.
+ 1. In the early days, I recommend pushing your branch to GitHub and using GitHub's or GitKraken's interface for merging.
 
 ### Use GitHub's interface to merge
 
-To merge changes from e.g. `your-name-first-branch` into `master` using GitHub's interface:
+To merge changes from e.g. `your-name-first-branch` into `main` using GitHub's interface:
 
  1. Push your branch to GitHub:
  
@@ -246,25 +261,25 @@ To merge changes from e.g. `your-name-first-branch` into `master` using GitHub's
     
  1. [Create a Pull Request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
  1. [Merge the PR](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/merging-a-pull-request). You're given a few strategies to choose from on how to do so; choose [Rebase and merge](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-request-merges#rebase-and-merge-your-pull-request-commits).
- 1. Switch back to `master` on your machine and fetch the merged version:
+ 1. Switch back to `main` on your machine and fetch the merged version:
  
     ```
-    git checkout master
+    git checkout main
     git pull
     ```
 
 ### git merge command
 
-To merge changes from e.g. `your-name-first-branch` into `master` using the command-line:
+To merge changes from e.g. `your-name-first-branch` into `main` using the command-line:
 
- 1. First switch to `master` and make sure it is up to date:
+ 1. First switch to `main` and make sure it is up to date:
  
     ```
-    git checkout master
+    git checkout main
     git pull
     ```
     
- 1. Switch back to your feature branch and "rebase interactively" onto `master`. This means, essentially, sync up the feature branch with any changes that may have occurred on `master` since they time you created the branch:
+ 1. Switch back to your feature branch and "rebase interactively" onto `main`. This means, essentially, sync up the feature branch with any changes that may have occurred on `main` since they time you created the branch:
  
     ```
     git checkout your-name-first-branch
@@ -276,10 +291,18 @@ To merge changes from e.g. `your-name-first-branch` into `master` using the comm
  1. Now that all your messy work-in-progress commits have been ironed out, we can merge:
  
     ```
-    git checkout master
+    git checkout main
     git merge your-name-first-branch
     ```
  
- 1. That's it — verify with `git log`. It's as if you made one, beautiful commit directly to `master`.
+ 1. That's it — verify with `git log`. It's as if you made one, beautiful commit directly to `main`.
  
- 
+## Automated testing
+
+You may have noticed that it's tedious to know when you've solved a problem completely; we can test the function a few times interactively with various arguments, but we have to do that over and over again while we're working. That's a lot of typing, and error prone!
+
+Instead, it's a good idea to **automate testing**, rather than doing it manually. For each puzzle, you'll see a file ending in `_test.py`. These are examples of how software engineers automate testing. You can run each one like any other Python program to see what they do.
+
+There's also a command available called `pytest` that you can run that has slightly more output, and you don't need to specify the file containing the tests; it will assume that any files ending in `_test.py` contain tests and run them all. Give it a try.
+
+How close were your solutions to passing all the tests?
